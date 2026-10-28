@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevPulse - Modern Tech, Code & Design Insights</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg sticky-top bg-body border-bottom py-3">
+        <div class="container">
+            <!-- Brand Logo -->
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <span class="brand-badge">
+                    <i class="bi bi-cpu-fill fs-5"></i>
+                </span>
+                <span class="fw-bold tracking-tight">Dev<span class="text-primary">Pulse</span></span>
+            </a>
+
+            <!-- Mobile Navbar Toggle -->
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links & Controls -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-3">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-semibold" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#articles-section">Articles</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Topics
+                        </a>
+                        <ul class="dropdown-menu shadow-sm border-0 mt-2">
+                            <li><a class="dropdown-item py-2 filter-btn-link" href="#articles-section" data-category="technology"><i class="bi bi-laptop me-2 text-primary"></i> Technology</a></li>
+                            <li><a class="dropdown-item py-2 filter-btn-link" href="#articles-section" data-category="webdev"><i class="bi bi-code-slash me-2 text-success"></i> Web Development</a></li>
+                            <li><a class="dropdown-item py-2 filter-btn-link" href="#articles-section" data-category="design"><i class="bi bi-palette me-2 text-warning"></i> UI/UX Design</a></li>
+                            <li><a class="dropdown-item py-2 filter-btn-link" href="#articles-section" data-category="ai"><i class="bi bi-robot me-2 text-info"></i> Artificial Intelligence</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item py-2 filter-btn-link" href="#articles-section" data-category="all"><i class="bi bi-fire me-2 text-danger"></i> All Topics</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="post.html">Featured Post</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a>
+                    </li>
+                </ul>
+
+                <!-- Live Search Box in Nav -->
+                <div class="d-flex align-items-center gap-2 me-lg-3 my-2 my-lg-0">
+                    <div class="input-group input-group-sm" style="max-width: 240px;">
+                        <span class="input-group-text bg-body-secondary border-end-0">
+                            <i class="bi bi-search text-muted"></i>
+                        </span>
+                        <input type="search" id="nav-search-input" class="form-control bg-body-secondary border-start-0 blog-search-input"
+                            placeholder="Search articles..." aria-label="Search">
+                    </div>
+                </div>
+
+                <!-- Theme Toggle Button & Create Post Action -->
+                <div class="d-flex align-items-center gap-2">
+                    <button id="theme-toggle-btn" class="btn btn-outline-secondary btn-sm rounded-circle p-2"
+                        style="width: 38px; height: 38px;" title="Toggle dark/light theme" aria-label="Toggle theme">
+                        <i class="bi bi-moon-stars-fill text-primary"></i>
+                    </button>
+
+                    <button class="btn btn-primary btn-sm rounded-pill px-3 d-flex align-items-center gap-1 shadow-sm"
+                        data-bs-toggle="modal" data-bs-target="#createPostModal">
+                        <i class="bi bi-plus-lg"></i>
+                        <span>Write Post</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Featured Story Banner -->
+    <header class="py-4 py-lg-5">
+        <div class="container">
+            <div class="hero-card position-relative overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1400&q=80"
+                    alt="The Rise of Autonomous AI Agents" class="hero-bg-img">
+                <div class="hero-overlay">
+                    <div class="d-inline-flex align-items-center gap-2 mb-3">
+                        <span class="badge bg-primary px-3 py-2 rounded-pill text-uppercase fw-bold letter-spacing-1">
+                            <i class="bi bi-stars me-1"></i> Featured Story
+                        </span>
+                        <span class="badge bg-dark bg-opacity-75 text-light px-3 py-2 rounded-pill">
+                            <i class="bi bi-clock me-1"></i> 6 min read
+                        </span>
+                    </div>
+
+                    <h1 class="display-5 fw-bold text-white mb-3" style="max-width: 820px;">
+                        The Dawn of Autonomous AI: How Agentic Systems Are Redefining Modern Software Engineering
+                    </h1>
+
+                    <p class="lead text-light text-opacity-75 mb-4 d-none d-md-block" style="max-width: 720px;">
+                        Explore how multi-agent collaboration, memory retrieval mechanisms, and deterministic execution environments are shifting software development from prompt-and-pray to verified autonomy.
+                    </p>
+
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 pt-2 border-top border-white border-opacity-25">
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80"
+                                alt="Dr. Elena Vance" class="author-avatar border-white">
+                            <div>
+                                <h6 class="text-white mb-0 fw-bold">Dr. Elena Vance</h6>
+                                <small class="text-white text-opacity-75">Principal AI Architect • Oct 27, 2026</small>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <a href="post.html" class="btn btn-primary rounded-pill px-4 py-2 fw-semibold shadow">
+                                Read Full Story <i class="bi bi-arrow-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mb-5" id="articles-section">
+        <div class="row g-4 g-lg-5">
+
+            <!-- Primary Article Feed Column (8 cols on lg) -->
+            <div class="col-lg-8">
+
+                <!-- Category Filter Pills & Header -->
+                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4 pb-3 border-bottom">
+                    <div>
+                        <h2 class="h4 fw-bold mb-1">Latest Publications</h2>
+                        <p class="text-muted small mb-0">Carefully curated engineering insights, design tutorials, and architecture teardowns.</p>
+                    </div>
+
+                    <!-- Category Filter Buttons -->
+                    <div class="d-flex flex-wrap gap-2" role="group" aria-label="Category filter">
+                        <button class="btn btn-sm filter-btn active" data-category="all">All</button>
+                        <button class="btn btn-sm filter-btn" data-category="technology">Technology</button>
+                        <button class="btn btn-sm filter-btn" data-category="webdev">Web Dev</button>
+                        <button class="btn btn-sm filter-btn" data-category="design">Design</button>
+                        <button class="btn btn-sm filter-btn" data-category="ai">AI & ML</button>
+                    </div>
+                </div>
+
+                <!-- Empty State Message (Hidden by default) -->
+                <div id="no-posts-found" class="text-center py-5 my-4 bg-body-tertiary rounded-4" style="display: none;">
+                    <i class="bi bi-search fs-1 text-muted d-block mb-3"></i>
+                    <h4 class="fw-bold">No articles found</h4>
+                    <p class="text-muted mb-3">We couldn't find any articles matching your search query or selected topic.</p>
+                    <button class="btn btn-outline-primary rounded-pill px-4 filter-btn" data-category="all">Reset Filters</button>
+                </div>
+
+                <!-- Articles Grid -->
+                <div class="row g-4" id="posts-grid">
+
+                    <!-- Post Card 1: Web Dev -->
+                    <div class="col-md-6 post-item" data-category="webdev">
+                        <article class="card blog-card h-100 shadow-sm">
+                            <div class="card-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80"
+                                    alt="Building High-Performance Web Apps with Bootstrap 5.3" loading="lazy">
+                                <span class="card-category-badge">Web Dev</span>
+                                <button class="card-bookmark-btn" title="Save article" aria-label="Bookmark">
+                                    <i class="bi bi-bookmark"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex align-items-center gap-2 text-muted small mb-2">
+                                    <span class="post-date"><i class="bi bi-calendar3 me-1"></i> Oct 26, 2026</span>
+                                    <span>•</span>
+                                    <span class="post-read-time"><i class="bi bi-clock me-1"></i> 5 min read</span>
+                                </div>
+                                <h3 class="card-title">
+                                    <a href="post.html" class="view-post-btn">Building High-Performance Responsive Web Apps with Bootstrap 5.3</a>
+                                </h3>
+                                <p class="card-text">
+                                    Discover native CSS variables, built-in dark mode switches, and utilities that minimize bloat while scaling enterprise design systems.
+                                </p>
+                                <div class="d-flex align-items-center justify-content-between pt-3 border-top mt-auto">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80"
+                                            alt="Marcus Brody" class="author-avatar-sm">
+                                        <div>
+                                            <h6 class="mb-0 small fw-bold author-name">Marcus Brody</h6>
+                                            <span class="text-muted author-role" style="font-size: 0.75rem;">Frontend Architect</span>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-sm btn-outline-primary rounded-pill px-3 view-post-btn">Read More</button>
+                                </div>
+                            </div>
+                            <!-- Hidden Full Content for Quick View Modal -->
+                            <div class="post-full-content d-none">
+                                <p class="lead">Bootstrap has evolved into a lightweight, utility-first design framework with native CSS variables and dark-mode themes baked in.</p>
+                                <p>With the release of Bootstrap 5.3, front-end developers no longer need custom CSS preprocessors or complex themes to support color modes. By relying on CSS variables and <code>data-bs-theme</code>, switching palettes happens in zero render blocking milliseconds.</p>
+                                <h5>Key Takeaways for Modern Web Developers:</h5>
+                                <ul>
+                                    <li>Native support for CSS custom properties makes live theming effortless.</li>
+                                    <li>Improved flexbox and CSS grid helpers allow pixel-perfect responsive layouts without clutter.</li>
+                                    <li>Zero jQuery dependency delivers blazing fast lighthouse performance scores.</li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Post Card 2: AI & ML -->
+                    <div class="col-md-6 post-item" data-category="ai">
+                        <article class="card blog-card h-100 shadow-sm">
+                            <div class="card-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
+                                    alt="Demystifying Vector Databases and Neural Embeddings" loading="lazy">
+                                <span class="card-category-badge">AI & ML</span>
+                                <button class="card-bookmark-btn" title="Save article" aria-label="Bookmark">
+                                    <i class="bi bi-bookmark"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex align-items-center gap-2 text-muted small mb-2">
+                                    <span class="post-date"><i class="bi bi-calendar3 me-1"></i> Oct 24, 2026</span>
+                                    <span>•</span>
+                                    <span class="post-read-time"><i class="bi bi-clock me-1"></i> 7 min read</span>
+                                </div>
+                                <h3 class="card-title">
+                                    <a href="post.html" class="view-post-btn">Demystifying Vector Databases: RAG Architecture at Scale</a>
+                                </h3>
+                                <p class="card-text">
+                                    A deep dive into high-dimensional geometric indexing, cosine similarity, and chunking strategies that make LLMs enterprise-grade.
+                                </p>
+                                <div class="d-flex align-items-center justify-content-between pt-3 border-top mt-auto">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80"
+                                            alt="Sarah Jenkins" class="author-avatar-sm">
+                                        <div>
+                                            <h6 class="mb-0 small fw-bold author-name">Sarah Jenkins</h6>
+                                            <span class="text-muted author-role" style="font-size: 0.75rem;">AI Research Lead</span>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-sm btn-outline-primary rounded-pill px-3 view-post-btn">Read More</button>
+                                </div>
+                            </div>
+                            <div class="post-full-content d-none">
+                                <p class="lead">Retrieval-Augmented Generation (RAG) is the bridge that connects generalized foundation models to proprietary private datasets.</p>
+                                <p>Instead of fine-tuning large parameters with prohibitive computational budgets, vector indexing enables near instantaneous document retrieval through semantic embeddings. In this article, we evaluate HNSW graph indexes vs IVFFlat algorithms.</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Post Card 3: Design -->
+                    <div class="col-md-6 post-item" data-category="design">
+                        <article class="card blog-card h-100 shadow-sm">
+                            <div class="card-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80"
+                                    alt="Micro-Interactions That Turn Casual Visitors into Power Users" loading="lazy">
+                                <span class="card-category-badge">Design</span>
+                                <button class="card-bookmark-btn" title="Save article" aria-label="Bookmark">
+                                    <i class="bi bi-bookmark"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex align-items-center gap-2 text-muted small mb-2">
+                                    <span class="post-date"><i class="bi bi-calendar3 me-1"></i> Oct 21, 2026</span>
+                                    <span>•</span>
+                                    <span class="post-read-time"><i class="bi bi-clock me-1"></i> 4 min read</span>
+                                </div>
+                                <h3 class="card-title">
+                                    <a href="post.html" class="view-post-btn">Micro-Interactions That Turn Casual Visitors into Power Users</a>
+                                </h3>
+                                <p class="card-text">
+                                    Tactile feedback, graceful motion curves, and non-intrusive status indicators: how subtle UI details craft memorable user delight.
+                                </p>
+                                <div class="d-flex align-items-center justify-content-between pt-3 border-top mt-auto">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80"
+                                            alt="David Kim" class="author-avatar-sm">
+                                        <div>
+                                            <h6 class="mb-0 small fw-bold author-name">David Kim</h6>
+                                            <span class="text-muted author-role" style="font-size: 0.75rem;">Staff Product Designer</span>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-sm btn-outline-primary rounded-pill px-3 view-post-btn">Read More</button>
+                                </div>
+                            </div>
+                            <div class="post-full-content d-none">
+                                <p class="lead">Good design is invisible, but great interactions feel alive and responsive under the user's fingertips.</p>
+                                <p>Micro-interactions provide state feedback, communicate spatial relationships, and reward user progress. We review spring animations and how CSS cubic-bezier curves provide a natural tactile feel.</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Post Card 4: Technology -->
+                    <div class="col-md-6 post-item" data-category="technology">
+                        <article class="card blog-card h-100 shadow-sm">
+                            <div class="card-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80"
+                                    alt="Zero-Trust Architecture in Distributed Cloud Systems" loading="lazy">
+                                <span class="card-category-badge">Technology</span>
+                                <button class="card-bookmark-btn" title="Save article" aria-label="Bookmark">
+                                    <i class="bi bi-bookmark"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex align-items-center gap-2 text-muted small mb-2">
+                                    <span class="post-date"><i class="bi bi-calendar3 me-1"></i> Oct 19, 2026</span>
+                                    <span>•</span>
+                                    <span class="post-read-time"><i class="bi bi-clock me-1"></i> 8 min read</span>
+                                </div>
+                                <h3 class="card-title">
+                                    <a href="post.html" class="view-post-btn">Zero-Trust Architecture in Modern Distributed Cloud Systems</a>
+                                </h3>
+                                <p class="card-text">
+                                    Moving beyond boundary firewalls: continuous authentication, mTLS encryption, and policy-as-code in Kubernetes microservices.
+                                </p>
+                                <div class="d-flex align-items-center justify-content-between pt-3 border-top mt-auto">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80"
+                                            alt="Dr. Elena Vance" class="author-avatar-sm">
+                                        <div>
+                                            <h6 class="mb-0 small fw-bold author-name">Dr. Elena Vance</h6>
+                                            <span class="text-muted author-role" style="font-size: 0.75rem;">Security & Systems</span>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-sm btn-outline-primary rounded-pill px-3 view-post-btn">Read More</button>
+                                </div>
+                            </div>
+                            <div class="post-full-content d-none">
+                                <p class="lead">Perimeter-based defense is obsolete in a multi-cloud, containerized world where compute instances spin up in seconds.</p>
+                                <p>Implementing zero-trust means requiring explicit cryptographic identity for every service-to-service transaction. We walk through setting up Istio service mesh with mutual TLS and SPIFFE/SPIRE attestation.</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Post Card 5: Web Dev -->
+                    <div class="col-md-6 post-item" data-category="webdev">
+                        <article class="card blog-card h-100 shadow-sm">
+                            <div class="card-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
+                                    alt="Mastering TypeScript 5.5: Inferred Type Predicates" loading="lazy">
+                                <span class="card-category-badge">Web Dev</span>
+                                <button class="card-bookmark-btn" title="Save article" aria-label="Bookmark">
+                                    <i class="bi bi-bookmark"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex align-items-center gap-2 text-muted small mb-2">
+                                    <span class="post-date"><i class="bi bi-calendar3 me-1"></i> Oct 16, 2026</span>
+                                    <span>•</span>
+                                    <span class="post-read-time"><i class="bi bi-clock me-1"></i> 6 min read</span>
+                                </div>
+                                <h3 class="card-title">
+                                    <a href="post.html" class="view-post-btn">Mastering TypeScript 5.5: Inferred Type Predicates & Clean Code</a>
+                                </h3>
+                                <p class="card-text">
+                                    Explore the latest type-system enhancements that eliminate boilerplate type guards and streamline your functional data pipelines.
+                                </p>
+                                <div class="d-flex align-items-center justify-content-between pt-3 border-top mt-auto">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80"
+                                            alt="Marcus Brody" class="author-avatar-sm">
+                                        <div>
+                                            <h6 class="mb-0 small fw-bold author-name">Marcus Brody</h6>
+                                            <span class="text-muted author-role" style="font-size: 0.75rem;">Frontend Architect</span>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-sm btn-outline-primary rounded-pill px-3 view-post-btn">Read More</button>
+                                </div>
+                            </div>
+                            <div class="post-full-content d-none">
+                                <p class="lead">TypeScript continues to sharpen its type inference capabilities, making runtime assertions cleaner than ever.</p>
+                                <p>With automatic inferred type predicates in standard array filtering, developers no longer need custom boolean type guards when narrowing optionals.</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Post Card 6: Technology -->
+                    <div class="col-md-6 post-item" data-category="technology">
+                        <article class="card blog-card h-100 shadow-sm">
+                            <div class="card-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80"
+                                    alt="The Evolution of Edge Computing and Serverless" loading="lazy">
+                                <span class="card-category-badge">Technology</span>
+                                <button class="card-bookmark-btn" title="Save article" aria-label="Bookmark">
+                                    <i class="bi bi-bookmark"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex align-items-center gap-2 text-muted small mb-2">
+                                    <span class="post-date"><i class="bi bi-calendar3 me-1"></i> Oct 12, 2026</span>
+                                    <span>•</span>
+                                    <span class="post-read-time"><i class="bi bi-clock me-1"></i> 5 min read</span>
+                                </div>
+                                <h3 class="card-title">
+                                    <a href="post.html" class="view-post-btn">The Evolution of Edge Computing: Executing Logic Within 10ms of Users</a>
+                                </h3>
+                                <p class="card-text">
+                                    How WebAssembly workers and globally distributed edge key-value storage are flipping conventional server architecture upside down.
+                                </p>
+                                <div class="d-flex align-items-center justify-content-between pt-3 border-top mt-auto">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80"
+                                            alt="David Kim" class="author-avatar-sm">
+                                        <div>
+                                            <h6 class="mb-0 small fw-bold author-name">David Kim</h6>
+                                            <span class="text-muted author-role" style="font-size: 0.75rem;">Cloud Specialist</span>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-sm btn-outline-primary rounded-pill px-3 view-post-btn">Read More</button>
+                                </div>
+                            </div>
+                            <div class="post-full-content d-none">
+                                <p class="lead">Latency is the enemy of user engagement. Running compute at the CDN edge eliminates round trips across continents.</p>
+                                <p>By leveraging V8 isolates and Wasm runtimes, edge functions cold-start in under 5 milliseconds, enabling real-time personalization at global scale.</p>
+                            </div>
+                        </article>
+                    </div>
+
+                </div>
+
+                <!-- Pagination Component -->
+                <nav class="d-flex justify-content-center mt-5" aria-label="Blog pagination">
+                    <ul class="pagination pagination-md gap-1">
+                        <li class="page-item disabled">
+                            <a class="page-link rounded-pill px-3" href="#" tabindex="-1" aria-disabled="true">
+                                <i class="bi bi-chevron-left me-1"></i> Prev
+                            </a>
+                        </li>
+                        <li class="page-item active" aria-current="page">
+                            <span class="page-link rounded-circle px-3">1</span>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link rounded-circle px-3" href="#">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link rounded-circle px-3" href="#">3</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link rounded-pill px-3" href="#">
+                                Next <i class="bi bi-chevron-right ms-1"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+
+            <!-- Sidebar Column (4 cols on lg) -->
+            <aside class="col-lg-4">
+
+                <!-- Widget 1: Blog Bio / Welcome -->
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">About DevPulse</h3>
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <span class="brand-badge p-3 rounded-circle">
+                            <i class="bi bi-terminal-fill fs-4"></i>
+                        </span>
+                        <div>
+                            <h5 class="mb-0 fw-bold">Engineering Hub</h5>
+                            <small class="text-muted">By Developers, For Developers</small>
+                        </div>
+                    </div>
+                    <p class="text-secondary small mb-3">
+                        DevPulse brings you pragmatic technical guides, system architecture breakdowns, and front-end craftsmanship straight from the tech frontier.
+                    </p>
+                    <div class="d-flex gap-2">
+                        <a href="https://github.com" target="_blank" class="social-icon-btn" title="GitHub"><i class="bi bi-github"></i></a>
+                        <a href="https://twitter.com" target="_blank" class="social-icon-btn" title="Twitter / X"><i class="bi bi-twitter-x"></i></a>
+                        <a href="https://linkedin.com" target="_blank" class="social-icon-btn" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://discord.com" target="_blank" class="social-icon-btn" title="Discord"><i class="bi bi-discord"></i></a>
+                    </div>
+                </div>
+
+                <!-- Widget 2: Trending / Top Stories -->
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">Trending Stories</h3>
+                    <div class="d-flex flex-column gap-3">
+                        
+                        <a href="post.html" class="trending-item">
+                            <span class="trending-rank">01</span>
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=150&q=80" alt="Autonomous AI Agents" class="trending-img">
+                            <div>
+                                <h6 class="mb-1 small fw-bold line-clamp-2">The Dawn of Autonomous AI: Multi-Agent Systems</h6>
+                                <small class="text-muted"><i class="bi bi-eye me-1"></i> 14.8k reads</small>
+                            </div>
+                        </a>
+
+                        <a href="post.html" class="trending-item">
+                            <span class="trending-rank">02</span>
+                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=150&q=80" alt="Bootstrap 5.3" class="trending-img">
+                            <div>
+                                <h6 class="mb-1 small fw-bold line-clamp-2">High-Performance Web Apps with Bootstrap 5.3</h6>
+                                <small class="text-muted"><i class="bi bi-eye me-1"></i> 9.2k reads</small>
+                            </div>
+                        </a>
+
+                        <a href="post.html" class="trending-item">
+                            <span class="trending-rank">03</span>
+                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=150&q=80" alt="Vector DBs" class="trending-img">
+                            <div>
+                                <h6 class="mb-1 small fw-bold line-clamp-2">Demystifying Vector Databases: RAG Architecture</h6>
+                                <small class="text-muted"><i class="bi bi-eye me-1"></i> 7.5k reads</small>
+                            </div>
+                        </a>
+
+                        <a href="post.html" class="trending-item">
+                            <span class="trending-rank">04</span>
+                            <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=150&q=80" alt="Micro Interactions" class="trending-img">
+                            <div>
+                                <h6 class="mb-1 small fw-bold line-clamp-2">Micro-Interactions That Turn Visitors to Fans</h6>
+                                <small class="text-muted"><i class="bi bi-eye me-1"></i> 6.1k reads</small>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Widget 3: Newsletter Subscription Card -->
+                <div class="newsletter-card mb-4 shadow">
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <i class="bi bi-envelope-open-heart fs-3"></i>
+                        <h4 class="h5 fw-bold mb-0">Join 35,000+ Readers</h4>
+                    </div>
+                    <p class="small text-white text-opacity-80 mb-3">
+                        Receive a hand-picked weekly digest of cutting-edge development articles, architectural patterns, and free toolkits.
+                    </p>
+                    <form class="newsletter-form">
+                        <div class="mb-2">
+                            <input type="email" class="form-control" placeholder="Enter your email address..." required>
+                        </div>
+                        <button type="submit" class="btn btn-dark w-100 fw-bold py-2 shadow-sm">
+                            Subscribe for Free <i class="bi bi-send ms-1"></i>
+                        </button>
+                    </form>
+                    <small class="d-block text-white text-opacity-60 text-center mt-2" style="font-size: 0.725rem;">
+                        No spam ever. Unsubscribe anytime in one click.
+                    </small>
+                </div>
+
+                <!-- Widget 4: Category Counters -->
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">Categories</h3>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center px-0 bg-transparent">
+                            <a href="#articles-section" class="text-decoration-none text-body fw-medium filter-btn-link" data-category="technology">
+                                <i class="bi bi-laptop me-2 text-primary"></i> Technology
+                            </a>
+                            <span class="badge bg-primary-subtle text-primary rounded-pill">18</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center px-0 bg-transparent">
+                            <a href="#articles-section" class="text-decoration-none text-body fw-medium filter-btn-link" data-category="webdev">
+                                <i class="bi bi-code-slash me-2 text-success"></i> Web Development
+                            </a>
+                            <span class="badge bg-success-subtle text-success rounded-pill">24</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center px-0 bg-transparent">
+                            <a href="#articles-section" class="text-decoration-none text-body fw-medium filter-btn-link" data-category="ai">
+                                <i class="bi bi-robot me-2 text-info"></i> Artificial Intelligence
+                            </a>
+                            <span class="badge bg-info-subtle text-info rounded-pill">12</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center px-0 bg-transparent">
+                            <a href="#articles-section" class="text-decoration-none text-body fw-medium filter-btn-link" data-category="design">
+                                <i class="bi bi-palette me-2 text-warning"></i> UI/UX Design
+                            </a>
+                            <span class="badge bg-warning-subtle text-warning rounded-pill">9</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Widget 5: Popular Tags Cloud -->
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">Popular Tags</h3>
+                    <div class="d-flex flex-wrap">
+                        <a href="#articles-section" class="tag-badge">#Bootstrap5</a>
+                        <a href="#articles-section" class="tag-badge">#JavaScript</a>
+                        <a href="#articles-section" class="tag-badge">#TypeScript</a>
+                        <a href="#articles-section" class="tag-badge">#React</a>
+                        <a href="#articles-section" class="tag-badge">#GenAI</a>
+                        <a href="#articles-section" class="tag-badge">#CSSGrid</a>
+                        <a href="#articles-section" class="tag-badge">#CloudNative</a>
+                        <a href="#articles-section" class="tag-badge">#Kubernetes</a>
+                        <a href="#articles-section" class="tag-badge">#DesignSystems</a>
+                        <a href="#articles-section" class="tag-badge">#OpenSource</a>
+                    </div>
+                </div>
+
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-classic py-5 mt-5">
+        <div class="container">
+            <div class="row g-4 mb-4">
+                
+                <!-- Col 1: Brand & Bio -->
+                <div class="col-lg-4 col-md-6">
+                    <a class="d-inline-flex align-items-center gap-2 text-decoration-none text-body mb-3" href="index.html">
+                        <span class="brand-badge">
+                            <i class="bi bi-cpu-fill fs-5"></i>
+                        </span>
+                        <span class="fw-bold fs-4">Dev<span class="text-primary">Pulse</span></span>
+                    </a>
+                    <p class="text-secondary small pe-lg-4">
+                        DevPulse is an independent publication dedicated to modern software engineering, modern web standards, UI/UX aesthetics, and intelligent automated systems.
+                    </p>
+                    <p class="text-secondary small mb-0">
+                        &copy; 2026 DevPulse Inc. All rights reserved.
+                    </p>
+                </div>
+
+                <!-- Col 2: Navigation -->
+                <div class="col-lg-2 col-6">
+                    <h6 class="fw-bold mb-3">Navigation</h6>
+                    <ul class="list-unstyled small d-flex flex-column gap-2 text-secondary">
+                        <li><a href="index.html" class="text-decoration-none text-secondary">Home</a></li>
+                        <li><a href="#articles-section" class="text-decoration-none text-secondary">All Articles</a></li>
+                        <li><a href="post.html" class="text-decoration-none text-secondary">Featured Story</a></li>
+                        <li><a href="#" data-bs-toggle="modal" data-bs-target="#contactModal" class="text-decoration-none text-secondary">Contact Us</a></li>
+                        <li><a href="#" data-bs-toggle="modal" data-bs-target="#createPostModal" class="text-decoration-none text-secondary">Write a Post</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Categories -->
+                <div class="col-lg-2 col-6">
+                    <h6 class="fw-bold mb-3">Topics</h6>
+                    <ul class="list-unstyled small d-flex flex-column gap-2 text-secondary">
+                        <li><a href="#articles-section" class="text-decoration-none text-secondary">Technology</a></li>
+                        <li><a href="#articles-section" class="text-decoration-none text-secondary">Web Development</a></li>
+                        <li><a href="#articles-section" class="text-decoration-none text-secondary">AI & Machine Learning</a></li>
+                        <li><a href="#articles-section" class="text-decoration-none text-secondary">UI/UX Design</a></li>
+                        <li><a href="#articles-section" class="text-decoration-none text-secondary">Cloud Architecture</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Newsletter Mini Form -->
+                <div class="col-lg-4 col-md-6">
+                    <h6 class="fw-bold mb-3">Stay Updated</h6>
+                    <p class="small text-secondary mb-3">Get the latest frontend guides and developer insights delivered directly to your inbox.</p>
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control form-control-sm" placeholder="Your email address" required>
+                            <button class="btn btn-primary btn-sm" type="submit">Join</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright & Back to Top -->
+            <div class="d-flex flex-wrap align-items-center justify-content-between pt-4 border-top border-secondary-subtle small text-secondary">
+                <div>
+                    Built with <i class="bi bi-heart-fill text-danger"></i> using <a href="https://getbootstrap.com" target="_blank" class="text-decoration-none fw-semibold">Bootstrap 5.3</a>
+                </div>
+                <div class="d-flex gap-3 mt-2 mt-sm-0">
+                    <a href="#" class="text-secondary text-decoration-none">Privacy Policy</a>
+                    <a href="#" class="text-secondary text-decoration-none">Terms of Service</a>
+                    <a href="#" class="text-secondary text-decoration-none">RSS Feed</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Back to Top Button -->
+    <button id="back-to-top" title="Back to top" aria-label="Back to top">
+        <i class="bi bi-arrow-up fs-5"></i>
+    </button>
+
+    <!-- ==========================================================================
+         MODALS
+         ========================================================================== -->
+
+    <!-- 1. Post Quick Reader Modal -->
+    <div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="postModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+            <div class="modal-content rounded-4 border-0 shadow-lg">
+                <div class="modal-header border-0 pb-0">
+                    <span id="modal-post-category" class="badge bg-primary rounded-pill px-3 py-2 text-uppercase"></span>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body px-4 pt-3 pb-4">
+                    <h2 id="modal-post-title" class="fw-bold mb-3"></h2>
+                    
+                    <div class="d-flex align-items-center gap-3 mb-4 pb-3 border-bottom">
+                        <img id="modal-author-avatar" src="" alt="Author" class="author-avatar">
+                        <div>
+                            <h6 id="modal-author-name" class="mb-0 fw-bold"></h6>
+                            <small class="text-muted">
+                                <span id="modal-author-role"></span> • <span id="modal-post-date"></span> • <span id="modal-post-read-time"></span>
+                            </small>
+                        </div>
+                    </div>
+
+                    <img id="modal-post-img" src="" alt="Cover" class="img-fluid rounded-4 mb-4 w-100" style="max-height: 380px; object-fit: cover;">
+                    
+                    <div id="modal-post-content" class="article-content fs-6">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+                <div class="modal-footer border-0 bg-body-tertiary rounded-bottom-4">
+                    <a href="post.html" class="btn btn-outline-primary rounded-pill">Open Dedicated Page <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                    <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Create New Post Modal -->
+    <div class="modal fade" id="createPostModal" tabindex="-1" aria-labelledby="createPostModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content rounded-4 border-0 shadow-lg">
+                <div class="modal-header border-bottom">
+                    <h5 class="modal-title fw-bold" id="createPostModalLabel">
+                        <i class="bi bi-pencil-square text-primary me-2"></i> Publish New Blog Article
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="createPostForm">
+                    <div class="modal-body p-4">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label for="postTitleInput" class="form-label fw-semibold">Article Title <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="postTitleInput" placeholder="e.g. Next-Gen Frontends with WebAssembly" required>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="postCategoryInput" class="form-label fw-semibold">Category <span class="text-danger">*</span></label>
+                                <select class="form-select" id="postCategoryInput" required>
+                                    <option value="technology">Technology</option>
+                                    <option value="webdev" selected>Web Dev</option>
+                                    <option value="design">Design</option>
+                                    <option value="ai">AI & ML</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="postAuthorInput" class="form-label fw-semibold">Author Name</label>
+                                <input type="text" class="form-control" id="postAuthorInput" placeholder="Your name">
+                            </div>
+
+                            <div class="col-12">
+                                <label for="postImageInput" class="form-label fw-semibold">Cover Image URL</label>
+                                <input type="url" class="form-control" id="postImageInput" placeholder="https://images.unsplash.com/photo-...">
+                                <small class="text-muted">Leave empty to use a curated tech background.</small>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="postExcerptInput" class="form-label fw-semibold">Short Excerpt / Summary <span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="postExcerptInput" rows="2" placeholder="A compelling 2-sentence summary of the post..." required></textarea>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="postContentInput" class="form-label fw-semibold">Article Body</label>
+                                <textarea class="form-control" id="postContentInput" rows="4" placeholder="Write full article content here..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-top">
+                        <button type="button" class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary rounded-pill px-4">Publish Article</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Contact Us Modal -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 shadow-lg">
+                <div class="modal-header border-bottom">
+                    <h5 class="modal-title fw-bold" id="contactModalLabel">
+                        <i class="bi bi-envelope text-primary me-2"></i> Get in Touch
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="contactForm">
+                    <div class="modal-body p-4">
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Your Name</label>
+                            <input type="text" class="form-control" placeholder="John Doe" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Email Address</label>
+                            <input type="email" class="form-control" placeholder="name@example.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Subject</label>
+                            <input type="text" class="form-control" placeholder="Guest posting inquiry, feedback, etc." required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Message</label>
+                            <textarea class="form-control" rows="4" placeholder="Write your message here..." required></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-top">
+                        <button type="button" class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary rounded-pill px-4">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 Bundle JS (Includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Application Script -->
+    <script src="main.js"></script>
+
+</body>
+</html>

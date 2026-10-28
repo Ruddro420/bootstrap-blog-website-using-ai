@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dawn of Autonomous AI - DevPulse</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg sticky-top bg-body border-bottom py-3">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <span class="brand-badge">
+                    <i class="bi bi-cpu-fill fs-5"></i>
+                </span>
+                <span class="fw-bold tracking-tight">Dev<span class="text-primary">Pulse</span></span>
+            </a>
+
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#articles-section">Articles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active fw-semibold" href="post.html">Featured Post</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-2">
+                    <button id="theme-toggle-btn" class="btn btn-outline-secondary btn-sm rounded-circle p-2"
+                        style="width: 38px; height: 38px;" title="Toggle dark/light theme" aria-label="Toggle theme">
+                        <i class="bi bi-moon-stars-fill text-primary"></i>
+                    </button>
+
+                    <a href="index.html" class="btn btn-outline-primary btn-sm rounded-pill px-3">
+                        <i class="bi bi-arrow-left me-1"></i> Back to Blog
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Article Container -->
+    <article class="container py-4 py-lg-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-9 col-xl-8">
+
+                <!-- Breadcrumb -->
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb small">
+                        <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.html#articles-section" class="text-decoration-none">Articles</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Autonomous AI</li>
+                    </ol>
+                </nav>
+
+                <!-- Article Header -->
+                <header class="mb-4">
+                    <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill fw-bold text-uppercase mb-3 d-inline-block">
+                        Artificial Intelligence
+                    </span>
+
+                    <h1 class="display-5 fw-bold mb-3 line-height-tight">
+                        The Dawn of Autonomous AI: How Agentic Systems Are Redefining Modern Software Engineering
+                    </h1>
+
+                    <p class="lead text-secondary mb-4">
+                        Explore how multi-agent collaboration, memory retrieval mechanisms, and deterministic execution environments are shifting software development from prompt-and-pray to verified autonomy.
+                    </p>
+
+                    <!-- Author Byline & Social Sharing Row -->
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 py-3 border-top border-bottom">
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80"
+                                alt="Dr. Elena Vance" class="author-avatar">
+                            <div>
+                                <h6 class="mb-0 fw-bold">Dr. Elena Vance</h6>
+                                <small class="text-secondary">Principal AI Architect • Published Oct 27, 2026 • 6 min read</small>
+                            </div>
+                        </div>
+
+                        <!-- Share Buttons -->
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="small text-secondary fw-semibold d-none d-sm-inline">Share:</span>
+                            <button class="btn btn-sm btn-outline-secondary rounded-circle" style="width: 34px; height: 34px;" title="Share on Twitter" onclick="navigator.clipboard.writeText(window.location.href); showToast('Link Copied', 'Article URL copied to clipboard!', 'info');">
+                                <i class="bi bi-twitter-x"></i>
+                            </button>
+                            <button class="btn btn-sm btn-outline-secondary rounded-circle" style="width: 34px; height: 34px;" title="Share on LinkedIn" onclick="navigator.clipboard.writeText(window.location.href); showToast('Link Copied', 'Article URL copied to clipboard!', 'info');">
+                                <i class="bi bi-linkedin"></i>
+                            </button>
+                            <button class="btn btn-sm btn-outline-secondary rounded-circle card-bookmark-btn position-static" style="width: 34px; height: 34px;" title="Save Bookmark">
+                                <i class="bi bi-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Featured Hero Image -->
+                <figure class="mb-5">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1400&q=80"
+                        alt="Neural networks and abstract agent graph" class="img-fluid rounded-4 shadow-sm w-100" style="max-height: 480px; object-fit: cover;">
+                    <figcaption class="figure-caption text-center mt-2 small text-secondary">
+                        Figure 1: High-dimensional agent topology orchestrating parallel developer tasks.
+                    </figcaption>
+                </figure>
+
+                <!-- Rich Article Content -->
+                <div class="article-content">
+                    <p class="lead">
+                        For decades, software development followed a predictable cadence: developers parsed requirement documents, drafted modular code, wrote unit tests, and pushed pull requests through continuous integration pipelines. Today, this sequential model is undergoing its greatest transformation since the inception of the compiler.
+                    </p>
+
+                    <h2 class="h3 fw-bold mt-5 mb-3">From Text Completion to Verified Workflows</h2>
+                    <p>
+                        Early iterations of large language models functioned primarily as intelligent autocompletes. They predicted the most probable next token given context. While helpful for writing boilerplate loops or regular expressions, they lacked agency: they could not inspect their environment, run test suites, or course-correct when a build failed.
+                    </p>
+
+                    <!-- Callout Quote -->
+                    <blockquote class="my-4">
+                        <i class="bi bi-quote fs-2 text-primary d-block mb-1"></i>
+                        "Autonomy is not about replacing human ingenuity; it is about providing engineers with high-bandwidth cognitive leverage to tackle architectural complexity."
+                    </blockquote>
+
+                    <h2 class="h3 fw-bold mt-5 mb-3">The Anatomy of an Agentic Engine</h2>
+                    <p>
+                        Modern agentic systems consist of four foundational pillars operating within a closed loop:
+                    </p>
+
+                    <ol class="mb-4">
+                        <li class="mb-2"><strong>Perception & Context Assembly:</strong> Ingesting the current workspace state, active file trees, and semantic vector embeddings.</li>
+                        <li class="mb-2"><strong>Reasoning & Strategy Decomposition:</strong> Formulating an explicit multi-step plan before making modifications.</li>
+                        <li class="mb-2"><strong>Sandboxed Tool Execution:</strong> Interacting with compilers, linters, and terminals inside isolated virtual runtime sandboxes.</li>
+                        <li class="mb-2"><strong>Reflective Verification:</strong> Analyzing terminal exit codes, stack traces, and test assertions to iterate autonomously.</li>
+                    </ol>
+
+                    <!-- Code Snippet Block -->
+                    <div class="card bg-dark text-white rounded-3 my-4 overflow-hidden shadow-sm">
+                        <div class="d-flex align-items-center justify-content-between px-3 py-2 bg-black bg-opacity-40 border-bottom border-secondary-subtle">
+                            <span class="small text-secondary font-monospace"><i class="bi bi-filetype-py me-1 text-warning"></i> agent_executor.py</span>
+                            <button class="btn btn-sm btn-outline-light py-0 px-2 small" onclick="navigator.clipboard.writeText('async def execute_task(step):\n    sandbox = await Sandbox.spawn()\n    res = await sandbox.run(step.command)\n    return res.is_success'); showToast('Code Copied', 'Snippet copied to clipboard!', 'success');">
+                                <i class="bi bi-clipboard me-1"></i> Copy
+                            </button>
+                        </div>
+                        <div class="p-3">
+                            <pre class="m-0 text-light"><code class="language-python">async def execute_task(step: PlanStep) -> ExecutionResult:
+    # 1. Initialize isolated sandbox environment
+    sandbox = await Sandbox.spawn(timeout_seconds=30)
+    
+    # 2. Dispatch command and observe live stdout/stderr
+    result = await sandbox.run_command(step.command)
+    
+    # 3. Reflective evaluation
+    if not result.is_success:
+        critique = await agent.analyze_error(result.stderr)
+        return await agent.retry_with_patch(step, critique)
+        
+    return ExecutionResult(status="PASSED", artifacts=result.files)</code></pre>
+                        </div>
+                    </div>
+
+                    <h2 class="h3 fw-bold mt-5 mb-3">Key Architectural Takeaways</h2>
+                    <div class="alert alert-primary rounded-4 p-4 border-0 shadow-sm mb-4">
+                        <h5 class="fw-bold text-primary mb-2"><i class="bi bi-lightbulb-fill me-2"></i> Takeaways for Engineering Teams:</h5>
+                        <ul class="mb-0 ps-3">
+                            <li class="mb-1"><strong>Deterministic verification:</strong> Always pair LLM generation with automatic unit tests and linter runs.</li>
+                            <li class="mb-1"><strong>Least-privilege sandboxing:</strong> Tool execution must be restricted to sandboxed workspaces without unrestricted host access.</li>
+                            <li><strong>Iterative self-correction:</strong> The true power of an agent lies not in 0-shot perfection, but in graceful error recovery.</li>
+                        </ul>
+                    </div>
+
+                    <p>
+                        As we look ahead, software engineering will focus increasingly on system specification, architecture design, and safety invariants, while agents handle mechanical implementation, automated refactoring, and test suite synthesis.
+                    </p>
+                </div>
+
+                <!-- Tags Row -->
+                <div class="pt-4 pb-4 border-top border-bottom my-5 d-flex flex-wrap align-items-center justify-content-between gap-3">
+                    <div class="d-flex flex-wrap align-items-center gap-2">
+                        <span class="small fw-bold text-secondary me-2"><i class="bi bi-tags me-1"></i> Tags:</span>
+                        <a href="index.html#articles-section" class="tag-badge">#ArtificialIntelligence</a>
+                        <a href="index.html#articles-section" class="tag-badge">#Agents</a>
+                        <a href="index.html#articles-section" class="tag-badge">#SoftwareEngineering</a>
+                        <a href="index.html#articles-section" class="tag-badge">#Python</a>
+                    </div>
+                </div>
+
+                <!-- Author Bio Box -->
+                <div class="card p-4 rounded-4 bg-body-tertiary border-0 mb-5 shadow-sm">
+                    <div class="d-flex flex-column flex-sm-row align-items-sm-center gap-4">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
+                            alt="Dr. Elena Vance" class="author-avatar" style="width: 80px; height: 80px;">
+                        <div>
+                            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-1">
+                                <h5 class="fw-bold mb-0">Dr. Elena Vance</h5>
+                                <button class="btn btn-sm btn-outline-primary rounded-pill px-3" onclick="showToast('Following Author', 'You will now receive updates from Dr. Elena Vance.', 'primary');">
+                                    <i class="bi bi-person-plus me-1"></i> Follow
+                                </button>
+                            </div>
+                            <p class="text-secondary small mb-2">
+                                Principal AI Architect & Researcher specializing in autonomous multi-agent cognition, deterministic sandboxing, and compiler verification systems.
+                            </p>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="text-secondary me-2"><i class="bi bi-twitter-x"></i></a>
+                                <a href="#" class="text-secondary me-2"><i class="bi bi-github"></i></a>
+                                <a href="#" class="text-secondary"><i class="bi bi-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comments Section -->
+                <section class="mb-5">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h4 class="fw-bold mb-0">
+                            Discussion <span class="badge bg-secondary-subtle text-secondary rounded-pill ms-2">3 Comments</span>
+                        </h4>
+                    </div>
+
+                    <!-- Leave Comment Form -->
+                    <div class="card p-4 rounded-4 border shadow-sm mb-4">
+                        <h5 class="fw-bold mb-3">Leave your comment</h5>
+                        <form id="commentForm" onsubmit="event.preventDefault(); addComment();">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <input type="text" id="commentAuthor" class="form-control" placeholder="Your name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" id="commentEmail" class="form-control" placeholder="Your email (never published)" required>
+                                </div>
+                                <div class="col-12">
+                                    <textarea id="commentText" class="form-control" rows="3" placeholder="Share your perspective or ask a question..." required></textarea>
+                                </div>
+                                <div class="col-12 text-end">
+                                    <button type="submit" class="btn btn-primary rounded-pill px-4">Post Comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Comments List -->
+                    <div class="d-flex flex-column gap-3" id="commentsList">
+
+                        <!-- Comment 1 -->
+                        <div class="card p-3 rounded-4 bg-body-tertiary border-0">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <div class="d-flex align-items-center gap-2">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Marcus" class="author-avatar-sm">
+                                    <div>
+                                        <h6 class="mb-0 fw-bold small">Marcus Brody</h6>
+                                        <span class="text-muted" style="font-size: 0.75rem;">Oct 27, 2026 • 2 hours ago</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-sm btn-link text-decoration-none text-secondary p-0">Reply</button>
+                            </div>
+                            <p class="small text-secondary mb-0">
+                                Fantastic article! The distinction between token prediction vs. closed-loop reflection with sandbox exit codes is where real engineering value emerges.
+                            </p>
+                        </div>
+
+                        <!-- Comment 2 -->
+                        <div class="card p-3 rounded-4 bg-body-tertiary border-0">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <div class="d-flex align-items-center gap-2">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80" alt="Sarah" class="author-avatar-sm">
+                                    <div>
+                                        <h6 class="mb-0 fw-bold small">Sarah Jenkins</h6>
+                                        <span class="text-muted" style="font-size: 0.75rem;">Oct 27, 2026 • 4 hours ago</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-sm btn-link text-decoration-none text-secondary p-0">Reply</button>
+                            </div>
+                            <p class="small text-secondary mb-0">
+                                Sandboxing is paramount. Any production agent must have deterministic bounds, otherwise unauthorized socket calls or accidental deletions can occur.
+                            </p>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Related Articles Section -->
+                <section class="mt-5 pt-4 border-top">
+                    <h4 class="fw-bold mb-4">Related Articles</h4>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="card blog-card h-100 shadow-sm">
+                                <div class="card-img-wrapper" style="padding-top: 50%;">
+                                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Vector DBs">
+                                    <span class="card-category-badge">AI & ML</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">
+                                        <a href="post.html">Demystifying Vector Databases: RAG Architecture at Scale</a>
+                                    </h5>
+                                    <p class="card-text small text-secondary">
+                                        High-dimensional geometric indexing and cosine similarity for LLM retrieval.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="card blog-card h-100 shadow-sm">
+                                <div class="card-img-wrapper" style="padding-top: 50%;">
+                                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Bootstrap 5">
+                                    <span class="card-category-badge">Web Dev</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">
+                                        <a href="post.html">Building High-Performance Web Apps with Bootstrap 5.3</a>
+                                    </h5>
+                                    <p class="card-text small text-secondary">
+                                        Discover native CSS variables and dark mode switches in modern frontends.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer-classic py-5 mt-5">
+        <div class="container text-center">
+            <a class="d-inline-flex align-items-center gap-2 text-decoration-none text-body mb-3" href="index.html">
+                <span class="brand-badge">
+                    <i class="bi bi-cpu-fill fs-5"></i>
+                </span>
+                <span class="fw-bold fs-4">Dev<span class="text-primary">Pulse</span></span>
+            </a>
+            <p class="text-secondary small mb-3">
+                &copy; 2026 DevPulse Inc. Built with Bootstrap 5.3.
+            </p>
+            <div class="d-flex justify-content-center gap-3 small text-secondary">
+                <a href="index.html" class="text-secondary text-decoration-none">Home</a>
+                <a href="index.html#articles-section" class="text-secondary text-decoration-none">Articles</a>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#contactModal" class="text-secondary text-decoration-none">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Modal -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 shadow-lg">
+                <div class="modal-header border-bottom">
+                    <h5 class="modal-title fw-bold" id="contactModalLabel">
+                        <i class="bi bi-envelope text-primary me-2"></i> Get in Touch
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="contactForm">
+                    <div class="modal-body p-4">
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Your Name</label>
+                            <input type="text" class="form-control" placeholder="John Doe" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Email Address</label>
+                            <input type="email" class="form-control" placeholder="name@example.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Message</label>
+                            <textarea class="form-control" rows="4" placeholder="Write your message here..." required></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-top">
+                        <button type="button" class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary rounded-pill px-4">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Back to Top Button -->
+    <button id="back-to-top" title="Back to top" aria-label="Back to top">
+        <i class="bi bi-arrow-up fs-5"></i>
+    </button>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+
+    <script>
+        function addComment() {
+            const author = document.getElementById('commentAuthor').value.trim();
+            const text = document.getElementById('commentText').value.trim();
+            if (!author || !text) return;
+
+            const list = document.getElementById('commentsList');
+            const newComment = document.createElement('div');
+            newComment.className = 'card p-3 rounded-4 bg-body-tertiary border-0 animate-fade-in';
+            newComment.innerHTML = `
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                    <div class="d-flex align-items-center gap-2">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="${escapeHtml(author)}" class="author-avatar-sm">
+                        <div>
+                            <h6 class="mb-0 fw-bold small">${escapeHtml(author)}</h6>
+                            <span class="text-muted" style="font-size: 0.75rem;">Just now</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm btn-link text-decoration-none text-secondary p-0">Reply</button>
+                </div>
+                <p class="small text-secondary mb-0">${escapeHtml(text)}</p>
+            `;
+            list.prepend(newComment);
+            document.getElementById('commentForm').reset();
+            showToast('Comment Posted', 'Thank you! Your comment is now live.', 'success');
+        }
+    </script>
+</body>
+</html>
+
